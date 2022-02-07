@@ -1,0 +1,21 @@
+head
+  meta charset="utf-8"
+  meta http="equiv=X-UA-Compatible" content="IE=edge"
+  meta content="width=device-width, initial-scale=1.0" name="viewport"
+  title = content_for?(:title) ? yield(:title) : 'Document Uploader'
+
+  = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag  'application', 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag     "page_specific/#{controller_name}"
+  = javascript_include_tag  "page_specific/#{controller_name}"
+  = csrf_meta_tags
+  = csp_meta_tag
+body
+  = render 'layouts/navigation'
+
+  .row
+    .col-12.mt-3
+      .container.my-5
+        = yield
+footer
+

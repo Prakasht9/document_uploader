@@ -1,0 +1,33 @@
+.row
+  .col-sm-12.col-md-6.offset-md-3
+    .card.mt-3.mb-5.
+      .card-header
+        span Sign up
+        span.float-right= link_to "Log in", new_session_path(resource_name), class: 'btn btn-sm btn-outline-info  mr-3'
+      .card-body
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+
+          .row
+            .col-12
+              = f.input :first_name, required: true, autofocus: false, input_html: { class: 'form-control ' }
+          .row
+            .col-12
+              = f.input :last_name, required: true, autofocus: false, input_html: { class: 'form-control ' }
+          .row
+            .col-12
+              = f.input :email, required: true, autofocus: false, input_html: { class: 'form-control ' }
+
+          .row
+            .col-12
+              = f.input :password, required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { class: 'form-control ' }
+          .row
+            .col-12
+              = f.input :password_confirmation, required: true, input_html: { class: 'form-control ' }
+
+          .row
+            .col-12.text-center
+              = f.button :submit, 'Sign up', class: 'btn btn-success btn-sm '
+

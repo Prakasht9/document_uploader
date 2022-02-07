@@ -1,0 +1,6 @@
+$('#documents_container').html('<%= j render "documents/index", documents: @documents %>');
+
+$('#documents_container .pagination a').on("click", function(){
+  $.getScript(this.href);
+  return false;
+});
