@@ -1,0 +1,8 @@
+.row
+  .col-12
+    .card.mt-3.mb-5.
+      - if @documents.blank?
+        .alert.alert-info.m-0 No documents to show
+      - else
+        div#documents_container
+          = render "documents/index", documents: @documents

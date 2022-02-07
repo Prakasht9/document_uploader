@@ -1,0 +1,15 @@
+.card.shadow
+  .card-body
+    .table-responsive
+      table.table.table-bordered
+        thead
+          tr
+            th File
+            th.text-right Date
+        tbody
+          - documents.each_with_index do |document, index|
+            -if document.file.attached?  
+              tr
+                td = link_to document.name, rails_blob_path(document&.file, disposition: 'attachment')
+                td.text-right Uploaded on #{document.created_at&.strftime('%d/%m/%Y %H:%M %p')}
+

@@ -1,0 +1,30 @@
+.row
+  .col-sm-12.col-md-6.offset-md-3
+    .card.mt-3.mb-5.
+      .card-header
+        span Log In
+        span.float-right = link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-sm btn-outline-info  mr-3'
+      .card-body
+        = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+          .row
+            .col-12
+              = f.input :email, required: false, autofocus: true, input_html: { class: 'form-control ' }
+          .row
+            .col-12
+              = f.input :password, required: false, input_html: { class: 'form-control ' }
+
+          / rememberable
+          - if devise_mapping.rememberable?
+            .row
+              .col-12
+                = f.input :remember_me, as: :boolean
+          / rememberable
+
+          .row
+            .col-12.text-center
+              = f.button :submit, 'Log In', class: 'btn btn-success btn-sm '
+
+          / shared links
+          .row.mt-2
+            .col-12
+              = link_to "Forgot your password?", new_password_path(resource_name), class: 'btn btn-sm btn-outline-info  mr-3'

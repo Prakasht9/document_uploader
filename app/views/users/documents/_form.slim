@@ -1,0 +1,21 @@
+.row
+  .col-sm-12.col-md-8.offset-md-2
+    .card.mt-3.mb-5.
+      .card-header = "#{action_name&.titleize} Document"
+      .card-body
+        = simple_form_for [@user, @document] do |f|
+          = f.error_notification
+
+          - if f.object.errors[:base].present?
+            = f.error_notification message: f.object.errors[:base].to_sentence
+
+          .row
+            .col-12
+              = f.input :name, label: 'Name', input_html: { class: 'form-control ' }
+          .row
+            .col-12
+              = f.input :date, as: :string, label: 'Date *', input_html: { value: Date.today.strftime("%d-%m-%Y"), readonly: true }
+          .row
+            .col-12
+              = f.input :file, label: 'File', input_html: { class: 'form-control ', multiple: false, direct_upload: true, rows: 5 }
+              = f.button :submit, 'Add Record', class: 'btn btn-sm btn-outline-success'

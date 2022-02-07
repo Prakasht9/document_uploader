@@ -1,0 +1,18 @@
+.row
+  .col-12
+    .card.mt-3.mb-5.border-0
+      .row
+        .col-sm-12.col-md-4.offset-md-4
+          .card-img-wrap
+            - if @user.avatar.attached?
+              = image_tag(url_for(@user.avatar), alt: @user.full_name&.truncate(50), class: 'card-img-top')
+            - else
+              = image_tag('missing.png', alt: @user.full_name&.truncate(50), class: 'card-img-top')
+
+          .card-block.my-3
+            h4.card-title.m-0.text-center = @user.full_name
+          .card-footer.bg-transparent.border-0
+            .text-center
+              = link_to edit_user_path(@user), class: 'btn btn-sm btn-outline-success ' do
+                = icon('fas', 'edit', class: 'fa-fw mr-1')
+                | Edit profile
