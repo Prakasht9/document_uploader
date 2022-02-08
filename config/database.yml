@@ -1,8 +1,18 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: document_uploader_development
   pool: 5
+  timeout: 5000
+
+development:
+  database: document_uploader_development
   username: prakashthakur
   password: prakashthakur
   host: localhost
+
+production:
+  <<: *default
+  host: localhost
+  database: document_uploader_production
+  username: <%= Rails.application.credentials.dig(:production, :database, :username) %>
+  password: <%= Rails.application.credentials.dig(:production, :database, :password) %>
