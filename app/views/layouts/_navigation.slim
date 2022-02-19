@@ -1,6 +1,10 @@
 nav.navbar.navbar-expand-lg.navbar-light.fixed-top style="background-color: #6a788e;"
+
   .container
-    = link_to 'Documents', documents_path, class: 'navbar-brand text-white'
+    nav class="navbar navbar-light"
+      a class="navbar-brand" href="#"
+        = link_to image_tag('logo.png', width: "40", height: "40", alt: 'Tradebooks')
+    = link_to 'Tradebooks', '', class: 'navbar-brand text-white'
 
     button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
@@ -9,7 +13,11 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top style="background-color: #6a7
       - if current_user
         ul.navbar-nav.mr-auto
           li.nav-item.active
-            = link_to 'New Document', new_user_document_path(current_user), class: 'nav-link text-white'
+            = link_to 'Tradebooks', documents_path, class: 'navbar-brand text-white'
+
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            = link_to 'New Tradebook', new_user_document_path(current_user), class: 'nav-link text-white'
 
         ul.navbar-nav.ml-auto
           li.nav-item.dropdown
