@@ -1,0 +1,6 @@
+$('#posts_container').html('<%= j render "posts/index", posts: @posts %>');
+
+$('#posts_container .pagination a').on("click", function(){
+  $.getScript(this.href);
+  return false;
+});

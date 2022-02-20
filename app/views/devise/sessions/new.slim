@@ -1,9 +1,13 @@
 .row.pt-5.pb-5
   .col-sm-12
     .text-center
-      span.h1.float-left Get Rated
-      span.h1 Get Ranked
-      span.h1.float-right Get Funded
+      .btn.btn-lg.btn-primary.disabled.m-3.h1 Get Rated
+      .btn.btn-lg.btn-primary.disabled.m-3.h1 Get Ranked
+      .btn.btn-lg.btn-primary.disabled.m-3.h1 Get Funded
+      
+      / span.h1.float-left.p-2.border.border-primary Get Rated
+      / span.h1.p-2.border.border-primary Get Ranked
+      / span.h1.float-right.p-2.border.border-primary Get Funded
 
 .row
   .col-sm-12.col-md-6.offset-md-3
@@ -34,4 +38,4 @@
           / shared links
           .row.mt-2
             .col-12
-              = link_to "Forgot password ?", new_password_path(resource_name), class: 'btn btn-sm btn-outline-info  mr-3'
+              = link_to "Forgot password ?", new_password_path(resource_name), class: 'btn btn-sm btn-outline-info mr-3'

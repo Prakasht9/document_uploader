@@ -1,0 +1,21 @@
+- posts.each_with_index do |post, index|
+  .list-group
+    = link_to post, class: "list-group-item list-group-item-action flex-column align-items-start mb-2" do
+      .d-flex.w-100.justify-content-between
+        h5.mb-1 = post.title
+      / post body
+      p.my-1 = post.body
+      / post body
+      / post author
+      small
+        span written by&nbsp;
+        cite = post&.user&.full_name
+        .float-right = "Published on #{post.created_at&.strftime('%d/%m/%Y %H:%M %p')}"
+      / post author
+
+- if posts.present?
+  .row
+    .col-12
+      .float-left.my-4.blog-page-info.pad7tp.blog-text-color.ml-2 = page_entries_info( posts, model: '' )
+      .float-right.mr-2 = bootstrap_paginate posts
+

@@ -1,0 +1,14 @@
+.row
+  .col-12
+    .card.mt-3.mb-5.border-0
+      .row
+        .col-sm-12.col-md-4
+          .card-block.my-3
+            h2.card-title.m-0 = 'faq'
+          .card-block.my-3
+            h5.card-title.m-0 = 'faq'
+          .card-img-wrap
+            / - if @document.file.attached?
+            /   = link_to @document.file.name, download_document_path(@document.id), target: :blank
+            / - else
+            /   = 'No Attachment found'

@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :posts, dependent: :destroy
   has_many :documents, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
@@ -19,7 +20,7 @@ class User < ApplicationRecord
   end
 
   private
-
+  
   def correct_avatar_mime_type
     if avatar.attached? && !avatar.content_type.in?(%w(image/png image/jpeg image/jpg image/gif))
       avatar.purge # delete the uploaded file

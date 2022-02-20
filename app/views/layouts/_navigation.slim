@@ -1,23 +1,32 @@
-nav.navbar.navbar-expand-lg.navbar-light.fixed-top style="background-color: #6a788e;"
-
+nav.navbar.navbar-expand-lg.navbar-dark.fixed-top style="background-color: #343a40;" 
+  / #6a788e;"
   .container
-    nav class="navbar navbar-light"
-      a class="navbar-brand" href="#"
+    nav.navbar.navbar-light
+      a.navbar-brand href="#"
         = link_to image_tag('logo.png', width: "40", height: "40", alt: 'Tradebooks')
-    = link_to 'Tradebooks', '', class: 'navbar-brand text-white'
+    - unless current_user
+      = link_to 'Tradebooks', root_path, class: 'navbar-brand text-white'
 
     button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
 
     #navbarSupportedContent.collapse.navbar-collapse
       - if current_user
-        ul.navbar-nav.mr-auto
+        ul.navbar-nav
           li.nav-item.active
             = link_to 'Tradebooks', documents_path, class: 'navbar-brand text-white'
-
-        ul.navbar-nav.mr-auto
+        ul.navbar-nav
           li.nav-item.active
             = link_to 'New Tradebook', new_user_document_path(current_user), class: 'nav-link text-white'
+        
+        - if current_user.is_admin
+          ul.navbar-nav
+            li.nav-item.active
+              = link_to 'Tradescores', posts_path, class: 'nav-link text-white'
+          ul.navbar-nav
+            li.nav-item.active
+              = link_to 'New Tradescore',new_user_post_path(current_user), class: 'nav-link text-white'
+
 
         ul.navbar-nav.ml-auto
           li.nav-item.dropdown
@@ -26,5 +35,16 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top style="background-color: #6a7
             .dropdown-menu. aria-labelledby="uactions"
               = link_to 'My Profile', current_user, class: 'dropdown-item'
               .dropdown-divider
+              = link_to 'About Us', home_about_us_path, class: 'dropdown-item'
+              .dropdown-divider
               = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
+    - unless current_user
+      nav.navbar.navbar-expand-sm
+        ul.navbar-nav.ml-auto
+          li.nav-item.active
+            = link_to 'About Us', home_about_us_path, class: 'navbar-brand text-white'
+          / li.nav-item.active
+            # = link_to 'Contact Us', documents_path, class: 'navbar-brand text-white'
+          / li.nav-item.active
+            = link_to 'FAQ', home_faq_path, class: 'navbar-brand text-white'

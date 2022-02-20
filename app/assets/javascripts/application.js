@@ -2,9 +2,15 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
+//= require toastr
 //= require global
 //= require activestorage
 
+$(document).ajaxError(function (e, xhr, settings) {
+  if (xhr.status == 401) {
+    location.reload()
+  }
+});
 
 // direct_uploads.js
 

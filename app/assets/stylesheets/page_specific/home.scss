@@ -1,0 +1,250 @@
+section {
+    padding: 50px 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.aboutBanner {
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding: 30px 0px 30px 110px;
+}
+
+.aboutBannerContent {
+    background: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15);
+    display: flex;
+    max-width: 980px;
+}
+
+.aboutBannerContent h2 {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.aboutBannerContent img {
+    max-width: 100%;
+    margin-left: 100px;
+    height: 340px;
+}
+
+.aboutBannerContent ul {
+    display: flex;
+    margin-top: 50px;
+}
+
+.aboutBannerContent li {
+    margin-right: 10px;
+}
+
+.key_people img {
+    max-width: 100%;
+    width: 200px;
+}
+
+.keyContent {
+    display: flex;
+}
+
+.key_people {
+    width: 33.33%;
+    position: relative;
+    min-height: 400px;
+    margin-top: 20px;
+}
+
+.key_people label {
+    display: block;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    cursor: pointer;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.key_people .card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+.key_people .card div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+.key_people .card div.front {
+    background-color: #fff;
+}
+
+.key_people .card div.back {
+    background-color: #DCFFC6;
+}
+
+.key_people .card div.back div {
+    width: auto !important;
+    padding: 0px;
+    position: relative;
+    height: auto;
+}
+
+.key_people .card .back {
+    background: #DCFFC6;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    padding: 15px;
+}
+
+.key_people label:hover .card {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.key_people input {
+    display: none;
+}
+
+.key_people .back p span {
+    position: absolute;
+    left: 10px;
+    top: -2px;
+    font-weight: 700;
+    color: #999;
+}
+
+.key_people .back p {
+    position: relative;
+    color: #666;
+    font-size: 16px;
+}
+
+.key_people img.arrow {
+    max-width: 100%;
+    width: 26px;
+}
+
+.key_people .back h6 {
+    margin: 0;
+    text-align: left;
+    color: #666;
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 20px;
+}
+
+.left-align.rotate-left {
+    transform: rotate(180deg);
+    text-align: right;
+}
+
+.keypeople-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 0px;
+    left: 5px;
+}
+
+.keypeople-icon img {
+    max-width: 100%;
+}
+
+.back h4,
+.back h6 {
+    padding-left: 75px;
+}
+
+.back h4 {
+    font-size: 18px;
+    line-height: 22px;
+    color: #96d301;
+}
+
+.back h4,
+.back p {
+    text-align: left;
+}
+
+.keyContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.careers {
+    display: flex;
+    align-items: center;
+}
+
+.careers img {
+    height: 550px;
+    margin-right: 50px;
+}
+
+.careers p {
+    padding-top: 20px;
+}
+
+.jointeam {
+    text-align: center;
+    max-width: 780px;
+    margin: auto;
+}
+
+.jointeam img {
+    max-width: 100%;
+}
+
+.jointeam div {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.contactUs {
+    text-align: center;
+}
+
+.contactContent {
+    width: 86%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px 0 0 0;
+}
+
+.contactContent form {
+    width: 50%;
+    display: inline-block;
+}
+
+.contactContent button {
+    cursor: pointer;
+}
+
+.map {
+    width: 45%;
+    display: block;
+    float: right;
+}
+
+.map img {
+    width: 100%;
+    height: auto;
+}
