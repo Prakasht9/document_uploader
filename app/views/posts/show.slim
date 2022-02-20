@@ -1,0 +1,36 @@
+.row
+  .col-12
+    .card.mt-3.mb-5.
+      .card-body
+        h2.card-title.text-center 
+          = @post.title.titleize
+
+        p#notice.m-0 = notice
+
+        blockquote.blockquote.my-3.fn-17
+          p.card-text.mb-3 = @post.body
+
+          - if @post.avatar.attached?
+            = image_tag(url_for(@post.avatar), class: 'card-img-top')
+
+          footer.blockquote-footer.text-right.mt-3
+            | Written by&nbsp;
+            cite title="Author" = @post&.user&.full_name
+
+        / time
+        p.card-text.text-right
+          small.text-muted = "Published on #{@post.created_at&.strftime('%d/%m/%Y %H:%M %p')}"
+          small.text-muted.mx-2 |
+          small.text-muted = "Last updated on #{@post.updated_at&.strftime('%d/%m/%Y %H:%M %p')}"
+
+      / user specific actions
+      .card-footer.bg-transparent
+        .row
+          .col-12.text-center
+            - if current_user.id == @post.user_id
+              = link_to edit_user_post_path(current_user, @post), class: 'btn btn-sm btn-outline-success mr-3' do
+                = icon('fas', 'edit', class: 'fa-fw mr-1')
+                | Edit
+              = link_to user_post_path(current_user, @post), class: 'btn btn-sm btn-outline-danger ', data: { confirm: 'Are you sure?' }, method: :delete do
+                = icon('fas', 'trash', class: 'fa-fw mr-1')
+                | Delete

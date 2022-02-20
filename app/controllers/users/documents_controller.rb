@@ -1,4 +1,5 @@
 class Users::DocumentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user
 
   def index
@@ -20,7 +21,8 @@ class Users::DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to action: 'index', notice: 'Document was successfully created.' }
+        flash[:success] = 'Document was successfully created.'
+        format.html { redirect_to action: 'index'}
       else
         format.html { render :new }
       end

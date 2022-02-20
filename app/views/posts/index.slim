@@ -1,0 +1,8 @@
+.row
+  .col-12
+    .card.mt-3.mb-5
+      - if @posts.blank?
+        .alert.alert-info.m-0 No posts to show
+      - else
+        div#posts_container
+          = render "posts/index", posts: @posts
