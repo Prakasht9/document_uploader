@@ -11,7 +11,8 @@ class Post < ApplicationRecord
   
   def correct_avatar_mime_type
     if avatar.attached? && !avatar.content_type.in?(%w(image/png image/jpeg image/jpg image/gif))
-      avatar.purge # delete the uploaded file
+      # testing
+      avatar.purge
       errors.add(:avatar, 'Please upload only PNG, JPEG, JPG and GIF image formats')
     end
   end
